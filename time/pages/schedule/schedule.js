@@ -1,10 +1,9 @@
-import { Schedule } from 'schedule-model.js';
+import {Schedule} from 'schedule-model.js';
 var schedule = new Schedule();
 
 Page({
 
   data: {
-  
   },
  
   onLoad:function(){
@@ -12,15 +11,21 @@ Page({
   },
 
   _loadData:function(){
-    var id = 1;
-    var $data = schedule.getUserScheduleList(id,(res)=>{
-      console.log(res);
+    var data = schedule.getUserScheduleList((res)=>{
+      this.setData({
+        'timeArr':res
+      });
     });
   },
 
-  callBack:function(res){
-    console.log(res);  
+  onScheduleInfo:function(event){
+    var id = schedule.getDataSet(event,'id');
+    wx.navigateTo({
+      url: '../scheduleInfo/scheduleInfo?id='+id,
+    });  
   }
+
+  
 
 })
 

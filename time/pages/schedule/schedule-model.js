@@ -1,16 +1,16 @@
-import { Base } from '../../pages/utils/base.js';
+import {Base} from '../../pages/utils/base.js';
 
 class Schedule  extends Base{
   constructor(){
     super();
   }
 
-  getUserScheduleList(){
+  getUserScheduleList(callBack){
     var params = {
       url:'/timeactionList',
       type:'POST',
       sCallBack:function(res){
-        callBack && callBack(res.items);
+        callBack && callBack(res);
       }
     }
     this.request(params);

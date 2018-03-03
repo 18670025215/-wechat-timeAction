@@ -1,4 +1,4 @@
-import { Config } from '../utils/config.js';
+import {Config} from '../utils/config.js';
 
 class Base{
   constructor(){
@@ -19,15 +19,19 @@ class Base{
         'token':wx.getStorageSync('token')
       },
       success:function(res){
-        
         params.sCallBack&&params.sCallBack(res.data);
-        
       },
       fail:function(err){
         console.log(err);
       }
     })
-  }
+  };
+
+  /*获取元素上绑定的值*/
+  getDataSet(event,key){
+    return event.currentTarget.dataset[key];
+  };
+
   
 
 }
