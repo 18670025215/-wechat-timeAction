@@ -20,6 +20,12 @@
     },
     {
       "pagePath": "pages/note/note",
+      "text": "工作组",
+      "iconPath": "imgs/note.png",
+      "selectedIconPath": "imgs/note@select.png"
+    },
+    {
+      "pagePath": "pages/note/note",
       "text": "我",
       "iconPath": "imgs/user.png",
       "selectedIconPath": "imgs/user@select.png"

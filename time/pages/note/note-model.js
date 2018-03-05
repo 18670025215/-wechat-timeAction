@@ -5,6 +5,21 @@ class Note extends Base{
     super();
   }
 
+  /*新增记事本*/
+  add(item,counts){
+    var noteDataa = this.getNoteLocal();
+  }
+
+  getNoteLocal(){
+    var res = wx.getStorageInfoSync(this._storageKeyName);
+    if (!res) {
+      res = [];
+    }
+    return res;
+  }
+
+
+
   getUserNoteList(callBack){
     var params = {
       url:'/timeactionList',
