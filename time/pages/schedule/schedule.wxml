@@ -1,8 +1,0 @@
-<view>
-  <swiper>
-    <block wx:for="{{timeArr}}">
-      <swiper-item data-id="{{item.id}}" bindtap="onScheduleInfo" >{{item.title}} -- {{item.create_time}}</swiper-item>
-    </block> 
-  </swiper>
-  <view></view>
-</view>

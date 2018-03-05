@@ -1,28 +1,28 @@
 {
   "pages":[
-    "pages/schedule/schedule",   
-    "pages/scheduleInfo/scheduleInfo"
+    "pages/note/note",   
+    "pages/noteInfo/noteInfo"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "小程序",
+    "navigationBarTitleText": "",
     "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light",
     "enablePullDownRefresh": false
   },
   "tabBar": {
     "list": [{
-      "pagePath": "pages/schedule/schedule",
+      "pagePath": "pages/note/note",
       "text": "日程",
-      "iconPath": "iconPath",
-      "selectedIconPath": "selectedIconPath"
+      "iconPath": "imgs/note.png",
+      "selectedIconPath": "imgs/note@select.png"
     },
     {
-      "pagePath": "pages/schedule/schedule",
+      "pagePath": "pages/note/note",
       "text": "我",
-      "iconPath": "iconPath",
-      "selectedIconPath": "selectedIconPath"
+      "iconPath": "imgs/user.png",
+      "selectedIconPath": "imgs/user@select.png"
     }
     ]
   }
