@@ -15,6 +15,9 @@ class NoteInfo extends Base{
     };
     this.request(param);
   }
+
+
+  
 }
 
 export {NoteInfo};
