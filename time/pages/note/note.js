@@ -26,8 +26,9 @@ Page({
 
   onNoteInfo: function (event) {
     var id = note.getDataSet(event, 'id');
+    var title = note.getDataSet(event, 'title');
     wx.navigateTo({
-      url: '../noteInfo/noteInfo?id=' + id,
+      url: '../noteInfo/noteInfo?id=' + id + '&title=' + title,
     });
   }
 

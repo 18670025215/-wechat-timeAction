@@ -3,17 +3,18 @@ import {Base} from  '../../utils/base.js';
 class NoteInfo extends Base{
   constructor(){
     super();
+    this._storageKeyName = 'noteInfo';
   }
 
   getDetaileInfo(id,callback){
-    var param = {
+    var params = {
       url:'note/'+id,
       type: 'POST',
-      sCallback:function(data){
-        callback && callback(data);
+      sCallBack:function(res){
+        callback && callback(res);
       }
-    };
-    this.request(param);
+    }
+    this.request(params);
   }
 
 
