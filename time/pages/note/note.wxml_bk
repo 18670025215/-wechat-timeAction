@@ -1,0 +1,19 @@
+<view class="page">
+
+    <view class="page__bd">
+    
+        <view class="weui-cells__title">带图标、说明、跳转的列表项</view>
+        <view class="weui-cells weui-cells_after-title" wx:for="{{timeArr}}">
+            <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__hd">
+                   <checkbox-group bindchange="checkboxChange" data-index="{{index}}" data-checks="{{item.checks}}">
+           <checkbox data-index="{{index}}" id="2" value="{{item.name}}" checked="{{item.checks}}"/>
+           </checkbox-group> 
+                </view>
+                <view class="weui-cell__bd"  data-id="{{item.id}}" data-title="{{item.title}}"  bindtap="onNoteInfo" >{{item.title}}</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"  data-id="{{item.id}}" data-title="{{item.title}}"  bindtap="onNoteInfo" >{{item.create_time}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+

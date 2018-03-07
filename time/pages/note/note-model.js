@@ -6,8 +6,6 @@ class Note extends Base{
     this._storageKeyName = 'note';
   }
 
-  
-
   getUserNoteList(callBack){
     var params = {
       url:'/timeactionList',

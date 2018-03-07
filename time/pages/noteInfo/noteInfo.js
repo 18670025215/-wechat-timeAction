@@ -7,6 +7,7 @@ Page({
   },
 
   onLoad: function (options) {
+    console.log(options);
     var id = options.id;
     var title = options.title;
     this.data.id = id;

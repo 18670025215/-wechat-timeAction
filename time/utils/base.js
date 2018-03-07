@@ -32,7 +32,7 @@ class Base{
     return event.currentTarget.dataset[key];
   };
 
-  
+
 
 }
 

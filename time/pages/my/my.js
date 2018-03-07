@@ -1,39 +1,19 @@
-import { Note } from 'note-model.js';
-var note = new Note();
-
 Page({
-
   data: {
     items: [],
     startX: 0, //开始坐标
-    startY: 0,
-
+    startY: 0
   },
-
   onLoad: function () {
-    this._loadData();
-  },
-
-  _loadData: function () {
-    var data = note.getUserNoteList((res) => {
-      this.setData({
-        'items': res
-      });
-    });
-  },
-
-  onReady: function () {
-    wx.setNavigationBarTitle({
-      title: '日程列表'
-    });
-  },
-
-  onNoteInfo: function (event) {
-    var id = note.getDataSet(event, 'id');
-    var title = note.getDataSet(event, 'title');
-    wx.navigateTo({
-      url: '../noteInfo/noteInfo?id=' + id + '&title=' + title,
-    });
+    for (var i = 0; i < 10; i++) {
+      this.data.items.push({
+        content: i + " 向左滑动删除哦,向左滑除哦",
+        isTouchMove: false //默认全隐藏删除
+      })
+    }
+    this.setData({
+      items: this.data.items
+    })
   },
 
   //手指触摸动作开始 记录起点X坐标
@@ -92,13 +72,5 @@ Page({
     this.setData({
       items: this.data.items
     })
-  },
-
-  checkboxChange:function(){
-
   }
-
-
-
 })
-

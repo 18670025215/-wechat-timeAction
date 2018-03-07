@@ -1,8 +1,9 @@
 {
-  "pages":[
-    "pages/note/note",   
+  "pages": [
+    "pages/note/note",
     "pages/noteInfo/noteInfo",
-    "pages/noteAdd/noteAdd"
+    "pages/noteAdd/noteAdd",
+    "pages/my/my"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
@@ -13,24 +14,27 @@
     "enablePullDownRefresh": false
   },
   "tabBar": {
-    "list": [{
-      "pagePath": "pages/note/note",
-      "text": "日程",
-      "iconPath": "imgs/note.png",
-      "selectedIconPath": "imgs/note@select.png"
-    },
-    {
-      "pagePath": "pages/noteAdd/noteAdd",
-      "text": "新增",
-      "iconPath": "imgs/note.png",
-      "selectedIconPath": "imgs/note@select.png"
-    },
-    {
-      "pagePath": "pages/note/note",
-      "text": "我",
-      "iconPath": "imgs/user.png",
-      "selectedIconPath": "imgs/user@select.png"
-    }
+    "selectedColor": "#1296db",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/note/note",
+        "text": "日程",
+        "iconPath": "imgs/note.png",
+        "selectedIconPath": "imgs/note@select.png"
+      },
+      {
+        "pagePath": "pages/noteAdd/noteAdd",
+        "text": "新增",
+        "iconPath": "imgs/add.png",
+        "selectedIconPath": "imgs/add@select.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我",
+        "iconPath": "imgs/user.png",
+        "selectedIconPath": "imgs/user@select.png"
+      }
     ]
   }
 }
