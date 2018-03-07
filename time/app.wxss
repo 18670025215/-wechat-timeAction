@@ -2,7 +2,7 @@
 
 page{
     background-color: #F8F8F8;
-    font-size: 16px;
+    font-size: 14px;
     font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
 }
 .page__hd {
@@ -37,13 +37,13 @@ page{
 /*--滑动删除--------------------*/
 .list-touch{
   overflow:hidden;
-   width:100%; 
-   display:block;
+  width:100%; 
+  display:block;
   background: #ffffff;
   border-bottom: 1px solid #dddddd;
 }
 .list-touch-checkBox{
-  float:left; width:6%; padding:2%;
+  float:left; width:6%;  line-height: 40px; padding-left:2%; padding-right:2%;
 }
 .list-touch-content{
   float:left; width:90%;
@@ -62,38 +62,47 @@ page{
  margin-right:0;
  -webkit-transition: all 0.4s;
  transition: all 0.4s;
- -webkit-transform: translateX(190px);
- transform: translateX(190px);
- margin-left: -190px;
+ -webkit-transform: translateX(180px);
+ transform: translateX(180px);
+ margin-left: -180px;
 }
-.list-top {
- background-color: #efefef;
- width: 90px;
- display: flex;
+
+.moreAction {
+ 
+ width: 160px;
+ /*display: flex;
  flex-direction: column;
  align-items: center;
- justify-content: center;
+ justify-content: center;*/
  color: #fff;
- -webkit-transform: translateX(90px);
- transform: translateX(90px);
+ -webkit-transform: translateX(160px);
+ transform: translateX(160px);
  -webkit-transition: all 0.4s;
  transition: all 0.4s;
+ overflow: hidden;
 }
-.del {
- background-color: orangered;
- width: 90px;
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: center;
- color: #fff;
- -webkit-transform: translateX(90px);
- transform: translateX(90px);
- -webkit-transition: all 0.4s;
- transition: all 0.4s;
+.goTop{
+  background-color: #dddddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 44px;
+  animation-iteration-count: center;
+  width: 80px;
+  float: left;
+}
+.del{
+  background-color: orangered;
+  display: flex;
+  width: 80px;
+  line-height: 44px;
+  flex-direction: column;
+  align-items: center;
+  animation-iteration-count: center;
+  float: left;
 }
 .touch-move-active .content,
-.touch-move-active .del {
+.touch-move-active .moreAction {
  -webkit-transform: translateX(0);
  transform: translateX(0);
 }

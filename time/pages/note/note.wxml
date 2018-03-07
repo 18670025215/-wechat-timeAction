@@ -7,9 +7,14 @@
   </view>
   <view class="list-touch-content">
     <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
-      <view class="content" data-id="{{item.id}}" data-title="{{item.title}}"  bindtap="onNoteInfo">{{item.title}}</view>
-      <view class="list-top"  data-index="{{index}}">删除</view>
-      <view class="del" catchtap="del" data-index="{{index}}">删除</view>
+      <view class="content" data-id="{{item.id}}" data-title="{{item.title}}"  bindtap="onNoteInfo">
+        <view style='float:left;'>{{item.title}}</view>
+        <view style='float:right; font-size:12px; color:#8a8a8a; margin-right:20px;'>{{item.create_time}}</view>
+      </view>
+      <view class="moreAction">
+        <view class="goTop">置顶</view>
+        <view class='del' data-index="{{index}}" catchtap="del" >删除</view>
+      </view>
     </view>
   </view>
 
