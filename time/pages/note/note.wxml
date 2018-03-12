@@ -1,24 +1,35 @@
-<view class="list-touch" wx:for="{{items}}" wx:key="">
+<!-- <view class="search-bar">  
+  <view class="search-wrap">  
+    <icon type="search" size="16" class="icon-search" />  
+    <input type="text" placeholder="请输入搜索内容" class="search-input" name="searchKeyword" bindinput="bindKeywordInput" value="{{searchKeyword}}" />  
+  </view>  
+  <view class="search-cancel" bindtap="keywordSearch">搜索</view>
+</view>   -->
 
-  <view class='list-touch-checkBox'>
-    <checkbox-group bindchange="checkboxChange" data-index="{{index}}" data-checks="{{item.checks}}">
-        <checkbox data-index="{{index}}" value="{{item.id}}" checked="{{item.checks}}"/>
-    </checkbox-group> 
-  </view>
-  <view class="list-touch-content">
-    <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
-      <view class="content" data-id="{{item.id}}" data-title="{{item.title}}"  bindtap="onNoteInfo">
-        <view style='float:left;'>{{item.title}}</view>
-        <view style='float:right; font-size:12px; color:#8a8a8a; margin-right:20px;'>{{item.create_time}}</view>
-      </view>
-      <view class="moreAction">
-        <view class="goTop">置顶</view>
-        <view class='del' data-index="{{index}}" catchtap="del" >删除</view>
+<scroll-view scroll-y='true' style="height:{{height}}px" bindscrolltolower='lower'>
+
+  <view class="list-touch" wx:for="{{items}}" wx:key="">
+    <view class='list-touch-checkBox'>
+      <checkbox-group bindchange="checkboxChange" data-index="{{index}}" data-checks="{{item.checks}}">
+          <checkbox data-index="{{index}}" value="{{item.id}}" checked="{{item.checks}}"/>
+      </checkbox-group> 
+    </view>
+    <view class="list-touch-content">
+      <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
+        <view class="content" data-id="{{item.id}}" data-title="{{item.title}}"  bindtap="onNoteInfo">
+          <view style='float:left;'>{{item.title}}</view>
+          <view style='float:right; font-size:12px; color:#8a8a8a; margin-right:20px;'>{{item.create_time}}</view>
+        </view>
+        <view class="moreAction">
+          <view class="goTop">置顶</view>
+          <view class='del' data-index="{{index}}" catchtap="del" >删除</view>
+        </view>
       </view>
     </view>
   </view>
 
-</view>
+</scroll-view>
+
 
 
 

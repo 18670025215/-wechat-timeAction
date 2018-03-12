@@ -1,1 +1,36 @@
-/* pages/note/note.wxss */
+/*搜索*/  
+.search{  
+  flex: auto;  
+  display: flex;  
+  flex-direction: column;  
+  background: #fff;  
+}  
+.search-bar{  
+  flex: none;  
+  display: flex;  
+  align-items: center;  
+  justify-content: space-between;  
+  padding: 15rpx;  
+  background: #f4f4f4;  
+}  
+.search-wrap{  
+  position: relative;  
+  flex: auto;  
+  display: flex;  
+  align-items: center;  
+  height: 60rpx;  
+  padding: 0 15rpx;  
+  background: #fff;  
+  border-radius: 6rpx;  
+}  
+.search-wrap .icon-search{  
+  margin-right: 10rpx;  
+}  
+.search-wrap .search-input{  
+  flex: auto;  
+  font-size: 28rpx;  
+}  
+.search-cancel{  
+  padding: 0 20rpx;  
+  font-size: 28rpx;  
+}  

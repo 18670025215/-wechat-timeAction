@@ -82,7 +82,7 @@ page{
  overflow: hidden;
 }
 .goTop{
-  background-color: #dddddd;
+  background-color: #1296db;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -1,6 +1,7 @@
 import {Config} from 'config.js';
 import {Token} from 'token.js';
 
+
 class Base{
   constructor(){
     this.baseRequestUrl = Config.restUrl;
