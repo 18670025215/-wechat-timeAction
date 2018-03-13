@@ -1,3 +1,17 @@
-<view data-id="{{noteInfo}}" >
-  {{noteInfo.title}}
+<view class='info-time'>
+  创建日期：{{noteInfo.create_time}}
+</view>
+
+<view class='info-time'>
+  截止日期：{{noteInfo.deadline}}
+</view>
+
+<view wx:if="{{noteInfo.finish_time}}">
+  <view class='info-time'>
+    完成日期：{{noteInfo.finish_time}}
+  </view>
+</view>
+
+<view class='info-content' >
+  {{noteInfo.content}}
 </view>

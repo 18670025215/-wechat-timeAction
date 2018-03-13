@@ -6,14 +6,23 @@
   <view class="search-cancel" bindtap="keywordSearch">搜索</view>
 </view>   -->
 
+
+
+
 <scroll-view scroll-y='true' style="height:{{height}}px" bindscrolltolower='lower'>
 
   <view class="list-touch" wx:for="{{items}}" wx:key="">
     <view class='list-touch-checkBox'>
-      <checkbox-group bindchange="checkboxChange" data-index="{{index}}" data-checks="{{item.checks}}">
-          <checkbox data-index="{{index}}" value="{{item.id}}" checked="{{item.checks}}"/>
-      </checkbox-group> 
+      <checkbox-group  bindchange="checkboxChange" data-index="{{index}}" data-id="{{item.id}}">
+        <view wx:if="{{item.finish_time}}">
+          <checkbox data-index="{{index}}" value="{{item.id}}" checked='checked' />
+        </view>  
+        <view wx:else>
+          <checkbox data-index="{{index}}" value="{{item.id}}" />
+        </view>
+      </checkbox-group>
     </view>
+
     <view class="list-touch-content">
       <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
         <view class="content" data-id="{{item.id}}" data-title="{{item.title}}"  bindtap="onNoteInfo">
@@ -21,8 +30,15 @@
           <view style='float:right; font-size:12px; color:#8a8a8a; margin-right:20px;'>{{item.create_time}}</view>
         </view>
         <view class="moreAction">
-          <view class="goTop">置顶</view>
-          <view class='del' data-index="{{index}}" catchtap="del" >删除</view>
+
+          <view wx:if="{{item.top_time}}">
+            <view class="goTopF" data-id="{{item.id}}" data-index="{{index}}" catchtap="top">取消置顶</view>
+          </view>  
+          <view wx:else>
+            <view class="goTop" data-id="{{item.id}}" data-index="{{index}}" catchtap="top">置顶</view>
+          </view>
+
+          <view class='del' data-id="{{item.id}}" data-index="{{index}}" catchtap="del" >删除</view>
         </view>
       </view>
     </view>

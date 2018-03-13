@@ -7,7 +7,6 @@ Page({
   },
 
   onLoad: function (options) {
-    console.log(options);
     var id = options.id;
     var title = options.title;
     this.data.id = id;
@@ -18,7 +17,7 @@ Page({
   _loadData:function(){
     noteInfo.getDetaileInfo(this.data.id,(data)=>{
       this.setData({
-        noteInfo:data
+        noteInfo:data,
       });
     });
   },

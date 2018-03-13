@@ -5,54 +5,50 @@ Page({
 
   data: {
     pageindex: 1,
-    callbackcount: 15, 
+    pageCount: '', 
     height: '',
     items: [],
-    resArr: [],
+    resArr:[],
     startX: 0, //开始坐标
     startY: 0,
+  },
+  
+  onShow: function () {
+    //this._loadData();
   },
 
   lower() {
     var that = this;
     var result = this.data.items;
+    var resArr = {};
     this.setData({
       pageindex: (this.data.pageindex+1)
     });
     var data = note.getUserNoteList(this.data.pageindex, (res) => {
-      console.log(res);
       that.setData({
-        "resArr":res
+        'resArr':res.data 
       });
-    });
-
-    console.log(this.data.resArr);
-    return false;
-
-    for (let i = 0; i < 10; i++) {
-      resArr.push(i);
-    };
-    var cont = result.concat(resArr);
-    console.log(resArr.length);
-    if (cont.length >= 100) {
-      wx.showToast({ //如果全部加载完成了也弹一个框
-        title: '我也是有底线的',
-        icon: 'success',
-        duration: 300
-      });
-      return false;
-    } else {
-      wx.showLoading({ //期间为了显示效果可以添加一个过度的弹出框提示“加载中”  
-        title: '加载中',
-        icon: 'loading',
-      });
-      setTimeout(() => {
-        this.setData({
-          res: cont
+      var cont = result.concat(that.data.resArr);
+      if (this.data.pageindex > this.data.pageCount) {
+        wx.showToast({ //如果全部加载完成了也弹一个框
+          title: '全部数据加载完成',
+          icon: 'success',
+          duration: 800
         });
-        wx.hideLoading();
-      }, 1500)
-    }
+        return false;
+      } else {
+        wx.showLoading({ //期间为了显示效果可以添加一个过度的弹出框提示“加载中”  
+          title: '加载中',
+          icon: 'loading',
+        });
+        setTimeout(() => {
+          this.setData({
+            'items': cont
+          });
+          wx.hideLoading();
+        }, 300)
+      }
+    }); 
   },
 
   onLoad: function () {
@@ -69,7 +65,8 @@ Page({
   _loadData: function () {
     var data = note.getUserNoteList(this.data.pageindex,(res) => {
       this.setData({
-        'items': res
+        'items': res.data,
+        'pageCount': res.pageCount
       });
     });
   },
@@ -87,17 +84,6 @@ Page({
       url: '../noteInfo/noteInfo?id=' + id + '&title=' + title,
     });
   },
-
-  searchScrollLower: function () {
-    let that = this;
-    if (that.data.searchLoading && !that.data.searchLoadingComplete) {
-      that.setData({
-        searchPageNum: that.data.searchPageNum + 1,  //每次触发上拉事件，把searchPageNum+1  
-        isFromSearch: false  //触发到上拉事件，把isFromSearch设为为false  
-      });
-      that.fetchSearchList();
-    }
-  },  
 
   //手指触摸动作开始 记录起点X坐标
   touchstart: function (e) {
@@ -149,16 +135,28 @@ Page({
     //返回角度 /Math.atan()返回数字的反正切值
     return 360 * Math.atan(_Y / _X) / (2 * Math.PI);
   },
+
   //删除事件
   del: function (e) {
     this.data.items.splice(e.currentTarget.dataset.index, 1)
-    this.setData({
-      items: this.data.items
-    })
+    var data = note.delNote(e.currentTarget.dataset.id, (res) => {
+      this.setData({
+        items: this.data.items
+      })
+    });
   },
 
-  checkboxChange:function(){
+  //置顶时间
+  top:function(e){
+    var data = note.checkTop(e.currentTarget.dataset.id, (res) => {
+     
+    });
+  },
 
+  checkboxChange:function(e){
+    var data = note.finish(e.currentTarget.dataset.id, (res) => {
+
+    });
   }
 
 

@@ -1,1 +1,17 @@
 /* pages/noteInfo/noteInfo.wxss */
+.info-content{
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 5px;
+  margin: 10rpx;
+  line-height: 20px;
+}
+.info-time{
+  font-size: 12PX;
+  padding: 5px;
+  background: #ffffff;
+  border-radius: 5px;
+  margin: 10rpx;
+  text-align: center;
+  color: #999999;
+}
