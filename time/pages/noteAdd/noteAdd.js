@@ -5,6 +5,7 @@ var util = require('../../utils/util.js');
 
 Page({
   data: {
+    showTopTips: false,
     group: ['个人', '工作'],
     group_num:0,
     date: util.formatDate(new Date),
@@ -42,7 +43,6 @@ Page({
     })
   },
   bindGroupChange:function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)  
     this.setData({
       group_num: e.detail.value
     })
@@ -64,24 +64,33 @@ Page({
     var formData = e.detail.value;
     var group_id = that.data.group_num;
 
+    if(formData.content == ''){
+      this.setData({
+        showTopTips: true
+      });
+      setTimeout(function () {
+        that.setData({
+          showTopTips: false
+        });
+      }, 2000);
+      return false;
+    }
+   
     var params = {
       url: 'noteAdd',
       type: 'POST',
       data: {"formData":formData,"group_id":group_id},
       sCallBack: function (res) {
-        //callback && callback(res);
         that.setData({
-          content:''
+          title:'',
+          content:'',
+          group_num:0,
+          date: util.formatDate(new Date)
         });
         wx.switchTab({
           url: '../note/note',
-          success: function (e) {
-            var page = getCurrentPages().pop();
-            if (page == undefined || page == null) return;
-            page.onLoad();
-          }
         }) 
-        
+
       }
     }
     noteAdd.request(params);

@@ -14,7 +14,14 @@ Page({
   },
   
   onShow: function () {
-    //this._loadData();
+    this._loadData();
+  },
+
+  topper(){
+    var that = this;
+    var result = this.data.items;
+    var resArr = {};   
+    console.log(this.data.pageindex);
   },
 
   lower() {
@@ -157,6 +164,13 @@ Page({
     var data = note.finish(e.currentTarget.dataset.id, (res) => {
 
     });
+  },
+
+  //下拉刷新
+  onPullDownRefresh:function(){
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+    console.log('11');
+    wx.stopPullDownRefresh();
   }
 
 

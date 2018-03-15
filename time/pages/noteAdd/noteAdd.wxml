@@ -6,6 +6,8 @@
 
     <view class="page__bd">
 
+      <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">请输入内容</view>
+
       <view class="weui-cells weui-cells_after-title">
 
         <view class="weui-cell weui-cell_input">
@@ -13,7 +15,7 @@
                 <view class="weui-label">标题</view>
             </view>
             <view class="weui-cell__bd">
-                <input class="weui-input" name="title" value='{{title}}' />
+                <input class="weui-input" name="title" value='{{title}}' placeholder="请输入标题" />
             </view>
         </view>
 
@@ -25,7 +27,6 @@
               <picker  range="{{group}}" value="{{group_num}}" bindchange="bindGroupChange">
                 <view class="weui-input">
                    <input class='weui-input' type="hidden" disabled="true" name="group" value="{{group[group_num]}}" /> 
-                  <!-- <input class='weui-input' type="hidden" disabled="true" name="group" value="{{group_num}}" /> -->
                 </view>
               </picker>
             </view>

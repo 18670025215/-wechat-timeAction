@@ -9,7 +9,7 @@
 
 
 
-<scroll-view scroll-y='true' style="height:{{height}}px" bindscrolltolower='lower'>
+<scroll-view scroll-y='true' style="height:{{height}}px" bindscrolltolower='lower' bindscrolltoupper='topper'>
 
   <view class="list-touch" wx:for="{{items}}" wx:key="">
     <view class='list-touch-checkBox'>
